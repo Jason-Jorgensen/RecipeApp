@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const axios = require('axios');
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -50,4 +51,15 @@ module.exports = function(app) {
       });
     }
   });
+
+  axios.get('https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples&apiKey=51f3cdfc80964978a1b1035f9bf64575', {
+  }).then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
 };
+
+
+
