@@ -52,13 +52,26 @@ module.exports = function(app) {
     }
   });
 
-  axios.get('https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples&apiKey=51f3cdfc80964978a1b1035f9bf64575', {
-  }).then(function (response) {
-    console.log(response);
+  app.post("/api/search/:ingredients", (req,res) => {
+
+    axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples&apiKey=51f3cdfc80964978a1b1035f9bf64575`, {
+    }).then(function (response) {
+      const hbsObject = {
+        recipes: response.data,
+      };
+      // console.log(hbsObject),
+      res.render('recipes');
+      // res.json(response.data);
+    
+      
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
   })
-  .catch(function (error) {
-    console.log(error);
-  })
+
+
 };
 
 

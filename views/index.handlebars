@@ -5,18 +5,39 @@
             <div class="row">
                 <div class="col s12 m12 l12">
                     <div class="card">
-
                         <div class="card-content">
                             <h5>Dairy</h5>
-                            <a href="#" class="waves-effect waves-light btn click-to-toggle">Button</a>
-                            <a href="#" class="waves-effect waves-light btn click-to-toggle">Button</a>
-                            <a href="#" class="waves-effect waves-light btn click-to-toggle">Button</a>
-                            <a href="#" class="waves-effect waves-light btn click-to-toggle">Button</a>
+                            {{#each dairy.dairy}}
+                            <a class="waves-effect waves-light btn click-to-toggle">{{this}}</a>
+                            {{/each}}
                         </div>
                     </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <h5>Meat</h5>
+                            {{#each meat.meat}}
+                            <a class="waves-effect waves-light btn click-to-toggle">{{this}}</a>
+                            {{/each}}
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <h5>Grains</h5>
+                            {{#each grains.grains}}
+                            <a class="waves-effect waves-light btn click-to-toggle">{{this}}</a>
+                            {{/each}}
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
+            <button class="btn waves-effect waves-light" id="recipeBtn" type="submit" name="action" href="/search/:ingredients">Submit
+                <i class="material-icons right">send</i>
+            </button>
         </div>
     </div>
+
+
 </div>
