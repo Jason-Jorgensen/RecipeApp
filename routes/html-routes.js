@@ -7,10 +7,6 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
 
-
-  // const dairy = [
-  //   "milk","butter","cream"
-  // ];
   const items = [
     {
       dairy:["milk","butter","cream","cheese"],
