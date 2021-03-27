@@ -2,9 +2,12 @@ document.addEventListener('DOMContentLoaded',(event) => {
     if (event) {
         console.info('DOM loaded');
     };
+    let ingredients = [];
 
     $('.click-to-toggle').click(function(){
         $(this).toggleClass('selected');
+        ingredients.push($(this).text());
+        console.log(ingredients);
      });
 
     const getRecipes = document.getElementById('recipeBtn');
@@ -13,17 +16,14 @@ document.addEventListener('DOMContentLoaded',(event) => {
         getRecipes.addEventListener('click', (e) => {
             e.preventDefault();
             console.log('working');
-            fetch("/api/search/:ingredients", {
-                method:'POST',
-            }).then((res) => 
-        //     res.json(),
-        //     ).then((response) => 
-        //         console.log(response)
-        // );
-        console.log(res.hbsObject));
+            location.href=`/search/${ingredients.join(",")}`
+        // console.log(res.hbsObject));
         });
+
+
     };
 
+    
 
 
 
