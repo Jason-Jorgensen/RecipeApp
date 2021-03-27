@@ -7,7 +7,13 @@
           <span class="card-title">{{title}}</span>
         </div>
         <div class="card-content">
-    
+            {{#if missedIngredientCount}}
+            {{#each missedIngredients}}
+            <h6>Missing Ingredients</h6>
+            <hr/>
+            <p>{{name}}</p>
+            {{/each}}
+            {{/if}}
         </div>
         <div class="card-action">
           <a href="/recipes/{{id}}">This is a link</a>
