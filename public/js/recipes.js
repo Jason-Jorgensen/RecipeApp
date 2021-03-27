@@ -6,7 +6,11 @@ document.addEventListener('DOMContentLoaded',(event) => {
 
     $('.click-to-toggle').click(function(){
         $(this).toggleClass('selected');
+        if (ingredients.includes($(this).text())){
+        ingredients = ingredients.filter(food => food != $(this).text());
+        } else {
         ingredients.push($(this).text());
+        };
         console.log(ingredients);
      });
 
@@ -19,8 +23,6 @@ document.addEventListener('DOMContentLoaded',(event) => {
             location.href=`/search/${ingredients.join(",")}`
         // console.log(res.hbsObject));
         });
-
-
     };
 
     
