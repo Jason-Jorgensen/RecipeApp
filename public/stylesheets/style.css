@@ -4,5 +4,9 @@ form.login {
 }
 
 .selected {
-  background-color:lightcoral;
+  background-color:lightcoral !important;
 }
+
+.click-to-toggle {
+  white-space:nowrap;
+} 
