@@ -75,14 +75,17 @@ module.exports = function (app) {
   });
 
   app.get("/search/:ingredients", (req, res) => {
-    axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${req.params.ingredients}&apiKey=51f3cdfc80964978a1b1035f9bf64575`, {
+    axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${req.params.ingredients}&ranking=2&apiKey=51f3cdfc80964978a1b1035f9bf64575`, {
     }).then(function (response) {
       
-      console.log(response.data);
+      console.log(response.data.map(recipe => recipe.missedIngredientCount > 0 ? ({...recipe, missedIngredientCount: true}) : ({...recipe, missedIngredientCount: false})));
       
       // res.json(response.data);
     
-      res.render("recipes", {recipes: response.data});
+      res.render("recipes", {
+        recipes: response.data.map(recipe => recipe.missedIngredientCount > 0 ? ({...recipe, missedIngredientCount: true}) : ({...recipe, missedIngredientCount: false})),
+      
+      });
       
     })
     .catch(function (error) {
@@ -93,16 +96,15 @@ module.exports = function (app) {
   app.get("/recipes/:id", (req, res) => {
     axios.get(`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=51f3cdfc80964978a1b1035f9bf64575`, {
     }).then(function (response) {
-      
       console.log(response.data);
-      
       // res.json(response.data);
-    
-      res.render("recipe", {recipe: response.data});
-      
+      res.render("recipe", {
+        recipe: response.data});
     })
     .catch(function (error) {
       console.log(error);
     });
   });
+
+  
 };
