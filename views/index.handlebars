@@ -4,100 +4,22 @@
 
             <div class="row">
                 <div class="col s12 m12 l12">
-                    <div class="card">
+                    
                         <div class="card-content ">
-                            <h5>Dairy</h5>
-                            {{#each dairy.dairy}}
-                            <a class="waves-effect waves-light btn-small click-to-toggle" style="margin-top:3px;">{{this}}</a>
-                            {{/each}}
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-content">
-                            <h5>Meat</h5>
-                            {{#each meat.meat}}
-                            <a class="waves-effect waves-light btn click-to-toggle" style="margin-top:3px;">{{this}}</a>
-                            {{/each}}
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-content">
-                            <h5>Grains</h5>
-                            {{#each grains.grains}}
-                            <a class="waves-effect waves-light btn click-to-toggle" style="margin-top:3px;">{{this}}</a>
-                            {{/each}}
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-content">
-                            <h5>Fruits</h5>
-                            {{#each fruits.fruits}}
-                            <a class="waves-effect waves-light btn click-to-toggle" style="margin-top:3px;">{{this}}</a>
-                            {{/each}}
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-content">
-                            <h5>Sweetners</h5>
-                            {{#each sweetners.sweetners}}
-                            <a class="waves-effect waves-light btn click-to-toggle" style="margin-top:3px;">{{this}}</a>
-                            {{/each}}
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-content">
-                            <h5>Fish</h5>
-                            {{#each fish.fish}}
-                            <a class="waves-effect waves-light btn click-to-toggle" style="margin-top:3px;">{{this}}</a>
-                            {{/each}}
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-content">
-                            <h5>Condiments</h5>
-                            {{#each condiments.condiments}}
-                            <a class="waves-effect waves-light btn click-to-toggle" style="margin-top:3px;">{{this}}</a>
-                            {{/each}}
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-content">
-                            <h5>Oils</h5>
-                            {{#each oils.oils}}
-                            <a class="waves-effect waves-light btn click-to-toggle" style="margin-top:3px;">{{this}}</a>
-                            {{/each}}
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-content">
-                            <h5>Seasonings</h5>
-                            {{#each seasoning.seasoning}}
-                            <a class="waves-effect waves-light btn click-to-toggle" style="margin-top:3px;">{{this}}</a>
-                            {{/each}}
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-content">
-                            <h5>Sauces</h5>
-                            {{#each sauces.sauces}}
-                            <a class="waves-effect waves-light btn click-to-toggle" style="margin-top:3px;">{{this}}</a>
-                            {{/each}}
-                        </div>
-                    </div>
-
-
+                            <ul class="collapsible">
+                                {{#each items}}
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">local_dining</i><h5>{{name}}</h5>
+                                    </div>
+                                    <div class="collapsible-body">{{#each ingredients}}<a
+                                            class="waves-effect waves-light btn-small click-to-toggle"
+                                            style="margin-top:3px;">{{this}}</a>{{/each}}</div>
+                                </li>
+                                {{/each}}
+                            </ul>
                 </div>
             </div>
-           
+
         </div>
     </div>
 

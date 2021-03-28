@@ -20,7 +20,7 @@
 <body>
   <nav>
     <div class="nav-wrapper valign-wrapper">
-      <a href="/" class="brand-logo center">The Pantry Genie</a>
+      <a href="/" class="brand-logo center" style="font-style:italic;">The Pantry Genie</a>
       <ul id="nav-mobile" class="left">
         <li><a href="/login"><i class="large material-icons my-3" style="font-size: 40px;">account_circle</i></a></li>
       </ul>
@@ -29,10 +29,9 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://kit.fontawesome.com/e461ce6c7e.js" crossorigin="anonymous"></script>
 
   <main>
 
@@ -40,27 +39,46 @@
 
   </main>
   <!-- footer -->
-  <footer class="page-footer selected">
-    <div class="container">
-      <div class="row">
-        <div class="footerColor col l6 s12">
-          <button class="btn-large waves-effect waves-light" id="recipeBtn" type="submit" name="action"
-            href="/search/:ingredients">Submit
-            <i class="material-icons right">send</i>
+  <footer class="page-footer footer selected footerColor">
+    <div class="container" style="margin-bottom:10px; margin-top:-10px">
+      {{!-- <div class="row"> --}}
+        <button class="btn-small waves-effect blue-grey darken-4" id="recipeBtn" type="submit" name="action"
+            href="/search/:ingredients">Meals<i class="fas fa-utensils" style="margin-left: 5px;"></i>
+          </button>
+
+        <button class="btn-small blue-grey darken-4" id="home" type="submit" name="action" href="/"><i
+              class="material-icons" style="font-size: 25px;">home</i>
+          </button>
+
+           <button class="btn-small waves-effect  blue-grey darken-4" id="favoritesBtn" type="submit" name="action"
+            href="/search/:ingredients">Saved<i class="fas fa-star" style="margin-left: 5px;"></i>
+          </button>
+
+        {{!-- <div class="col sm4 m4 l4">
+          <button class="btn-small waves-effect waves-teal" style="margin-top:0%" id="recipeBtn" type="submit" name="action"
+            href="/search/:ingredients">Meals<i class="fas fa-utensils" style="margin-left: 5px;"></i>
           </button>
         </div>
 
-        <div class="footerColor col l4 offset-l2 s12">
-
-          <ul id="nav-mobile" class="right">
-            <li><a class="waves-effect waves-light btn">Favorites<i class="material-icons right">star</i></a></li>
-          </ul>
-
+        <div class="col sm4 m4 l4"></div>
+          <button class="btn-small" id="recipeBtn" type="submit" name="action" href=""><i
+              class="material-icons right">home</i>
+          </button>
         </div>
-      </div>
-    </div>
-    <div class="footer-copyright grey darken-4">
-      <div class="container center-align">&copy; 2021 The Pantry Genie</div>
+
+        <div class="col sm3 m3 l3">
+          <button class="btn-small waves-effect waves-teal" id="recipeBtn" type="submit" name="action"
+            href="/search/:ingredients">View Meals<i class="fas fa-utensils" style="margin-left: 5px;"></i>
+          </button>
+        </div> --}}
+
+        {{!-- <div class="col sm6 m6 l6">
+          <ul id="nav-mobile" class="right">
+            <li><a class="waves-effect waves-light btn-small">Favorites<i class="material-icons right">star</i></a></li>
+          </ul>
+        </div> --}}
+
+      {{!-- </div> --}}
     </div>
   </footer>
 

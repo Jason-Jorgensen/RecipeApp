@@ -1,25 +1,25 @@
-  <div class="row container">
-      {{#each recipes}}
-    <div class="col s6 m4 l4">
-      <div class="card">
-        <div class="card-image">
-          <img src={{image}}>
-          <span class="card-title">{{title}}</span>
-        </div>
-        <div class="card-content">
-            {{#if missedIngredientCount}}
-            {{#each missedIngredients}}
-            <h6>Missing Ingredients</h6>
-            <hr/>
-            <p>{{name}}</p>
-            {{/each}}
-            {{/if}}
-        </div>
-        <div class="card-action">
-          <a href="/recipes/{{id}}">This is a link</a>
-        </div>
+<div class="row container">
+  {{#each recipes}}
+  <div class="col s12 m4 l4">
+    <div class="card">
+      <div class="card-image">
+        <img src={{image}}>
+        <span class="card-title"  style="font-weight: bolder; color:white; -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;">{{title}}</span>
+      </div>
+      <div class="card-content" style="margin-bottom:-10px;">
+        <h6 style="margin-top: -10px;">Missing Ingredients:</h6>
+        <hr />
+        {{#if missedIngredientCount}}
+        {{#each missedIngredients}}
+        <li>{{name}}</li>
+        {{/each}}
+        {{/if}}
+      </div>
+      <div class="card-action">
+        <a href="/recipes/{{id}}">View Recipe</a>
       </div>
     </div>
-    {{/each}}
   </div>
-            
+  {{/each}}
+</div>
