@@ -4,6 +4,9 @@ const path = require("path");
 const axios = require('axios');
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const apiKey1 = "51f3cdfc80964978a1b1035f9bf64575";
+const apiKey2 = "534345c59b2f4a11b45c4af45345c54e";
+
 module.exports = function (app) {
 
   const items = [
@@ -45,7 +48,7 @@ module.exports = function (app) {
     },
     {
       name: "Seasoning",
-      ingredients: ["bouillon",	"ground ginger",	"sesame seed",	"cream of tartar",	"chili sauce",	"soya sauce",	"apple cider",	"hoisin sauce",	"liquid smoke",	"rice wine",	"vegetable bouillon",	"poppy seed",	"balsamic glaze",	"miso",	"wasabi",	"fish stock",	"rose water",	"pickling salt",	"champagne vinegar",	"bbq rub",	"jamaican jerk spice",	"accent seasoning",	"pickling spice",	"mustard powder",	"mango powder",	"adobo seasoning",	"kasuri methi",	"caribbean jerk seasoning",	"brine",	"matcha powder",	"cassia"],
+      ingredients: [" Allspice",	" Apple Pie Spice",	" Basil",	" Bay Leaves",	" Cayenne",	" Chili Powder",	" Cinnamon",	" Cloves",	" Cumin",	" Curry Powder",	" Dill Weed",	" Garlic Powder",	" Ginger--Ground",	" Nutmeg--Ground",	" Onion Powder",	" Oregano",	" Paprika",	" Black Peppercorns",	" Red Pepper Flakes",	" Rosemary",	" Saffron",	" Sage",	" Tarragon",	" Thyme",	" Vanilla"],
     },
     {
       name: "Sauces",
@@ -83,10 +86,10 @@ module.exports = function (app) {
   });
 
   app.get("/search/:ingredients", (req, res) => {
-    axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${req.params.ingredients}&ranking=2&apiKey=51f3cdfc80964978a1b1035f9bf64575`, {
+    axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${req.params.ingredients}&ranking=2&number=25&apiKey=${apiKey2}`, {
     }).then(function (response) {
       
-      // console.log(response.data.map(recipe => recipe.missedIngredientCount > 0 ? ({...recipe, missedIngredientCount: true}) : ({...recipe, missedIngredientCount: false})));
+      // console.log(response);
       
       // res.json(response.data);
     
@@ -102,9 +105,9 @@ module.exports = function (app) {
   });
 
   app.get("/recipes/:id", (req, res) => {
-    axios.get(`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=51f3cdfc80964978a1b1035f9bf64575`, {
+    axios.get(`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${apiKey2}`, {
     }).then(function (response) {
-      console.log(response.data);
+      // console.log(response);
       // res.json(response.data);
       res.render("recipe", {
         recipe: response.data});

@@ -4,6 +4,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     };
     let ingredients = [];
 
+    $("#downButton").click(function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $(".recipeBoxes").offset().top
+        }, 1000);
+    });
+  
+
     $('.click-to-toggle').click(function () {
         $(this).toggleClass('selected');
         if (ingredients.includes($(this).text())) {
@@ -19,7 +26,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     if (getRecipes) {
         getRecipes.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log('working');
+            // console.log('working');
             if (ingredients.length === 0) {
                 alert("No Items were selected. Please select the items you have in your fridge and pantry and we'll find you some delicious recipes.");
             }else{
