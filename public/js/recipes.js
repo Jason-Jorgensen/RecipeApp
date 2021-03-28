@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             e.preventDefault();
             console.log('working');
             if (ingredients.length === 0) {
-                alert("No Items Selected");
+                alert("No Items were selected. Please select the items you have in your fridge and pantry and we'll find you some delicious recipes.");
             }else{
             location.href = `/search/${ingredients.join(",")}`
             }

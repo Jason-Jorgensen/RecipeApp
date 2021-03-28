@@ -86,7 +86,7 @@ module.exports = function (app) {
     axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${req.params.ingredients}&ranking=2&apiKey=51f3cdfc80964978a1b1035f9bf64575`, {
     }).then(function (response) {
       
-      console.log(response.data.map(recipe => recipe.missedIngredientCount > 0 ? ({...recipe, missedIngredientCount: true}) : ({...recipe, missedIngredientCount: false})));
+      // console.log(response.data.map(recipe => recipe.missedIngredientCount > 0 ? ({...recipe, missedIngredientCount: true}) : ({...recipe, missedIngredientCount: false})));
       
       // res.json(response.data);
     
@@ -108,6 +108,7 @@ module.exports = function (app) {
       // res.json(response.data);
       res.render("recipe", {
         recipe: response.data});
+        // console.log(response.data)
     })
     .catch(function (error) {
       console.log(error);

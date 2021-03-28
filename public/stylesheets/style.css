@@ -27,3 +27,7 @@ form.login {
   z-index: 1;
   vertical-align:middle;
 }
+
+ul {
+  list-style-type:square !important;
+}

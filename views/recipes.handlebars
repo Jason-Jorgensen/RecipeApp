@@ -1,23 +1,25 @@
-<div class="row container">
+<div class="row container"  style="margin-bottom: 50px;">
   {{#each recipes}}
-  <div class="col s12 m4 l4">
+  <div class="col s12 m3 l3">
     <div class="card">
       <div class="card-image">
         <img src={{image}}>
-        <span class="card-title"  style="font-weight: bolder; color:white; -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;">{{title}}</span>
       </div>
       <div class="card-content" style="margin-bottom:-10px;">
-        <h6 style="margin-top: -10px;">Missing Ingredients:</h6>
-        <hr />
+        <span class="card-title"  style="font-weight: bolder; color:lightcoral; margin-top:-15px;">{{title}}</span>
+    
         {{#if missedIngredientCount}}
+        <h6>Missing Ingredients:</h6>
+        <hr />
         {{#each missedIngredients}}
         <li>{{name}}</li>
         {{/each}}
+        {{else}}
+        <p style="font-style: italic;">No missing ingredients for this recipe.</p>
         {{/if}}
       </div>
       <div class="card-action">
-        <a href="/recipes/{{id}}">View Recipe</a>
+        <a href="/recipes/{{id}}" style="color:lightcoral">View More Information</a>
       </div>
     </div>
   </div>
