@@ -2,10 +2,8 @@
 const { reverse } = require("dns");
 const path = require("path");
 const axios = require('axios');
-
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-
 module.exports = function (app) {
 
   const items = [

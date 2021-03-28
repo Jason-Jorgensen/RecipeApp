@@ -20,7 +20,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
         getRecipes.addEventListener('click', (e) => {
             e.preventDefault();
             console.log('working');
+            if (ingredients.length === 0) {
+                alert("No Items Selected");
+            }else{
             location.href = `/search/${ingredients.join(",")}`
+            }
+            
             // console.log(res.hbsObject));
         });
     };
@@ -33,18 +38,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     };
 
-    // const goFavorites= document.getElementById('favoritesBtn');
-    // if (goFavorites) {
-    //     goFavorites.addEventListener('click', (e) => {
-    //         e.preventDefault();
-    //         location.href = `/favorites/:userId`;
-    //     });
-    // };
+    const goFavorites= document.getElementById('favoritesBtn');
+    if (goFavorites) {
+        goFavorites.addEventListener('click', (e) => {
+            e.preventDefault();
+            location.href = `/favorites/:userId`;
+        });
+    };
 
     var elems = document.querySelectorAll('.collapsible');
     var instances = M.Collapsible.init(elems);
 
-    // module.exports = ingredients;
 });
 
 
