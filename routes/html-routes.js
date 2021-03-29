@@ -65,28 +65,39 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/user/:id", (req, res) => {
-    // res.render("index");
-    // res.render('index', { ingredients: dairy });
-    res.render('index', {
-      items:items,
-    });
+  // app.get("/user/:id", (req, res) => {
+  //   // If the user already has an account send them to the members page
+  //   if (req.user) {
+  //     res.redirect("/members");
+  //   };
+  //   res.sendFile(path.join(__dirname, "../public/signup.html"));
+  // });
+ 
+  app.get("/member/signup", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/member/members");
+    }
+    res.render("signup");
   });
 
-
-  app.get("/login", (req, res) => {
+  app.get("/member/login", function(req, res) {
     // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect(`/member/members`);
+    }
     res.render("login");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+  app.get("/member/members", isAuthenticated, function(req, res) {
+    res.render("index");
   });
 
+
   app.get("/search/:ingredients", (req, res) => {
-    axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${req.params.ingredients}&ranking=2&number=25&apiKey=${apiKey2}`, {
+    axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${req.params.ingredients}&ranking=1&number=25&apiKey=${apiKey2}`, {
     }).then(function (response) {
       
       // console.log(response);
@@ -123,6 +134,8 @@ module.exports = function (app) {
     // If the user already has an account send them to the members page
     res.render("favorites");
   });
+
+
 
   
 };
