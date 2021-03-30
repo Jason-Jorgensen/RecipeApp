@@ -96,7 +96,7 @@ module.exports = function (app) {
 
 
   app.get("/search/:ingredients", (req, res) => {
-    axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${req.params.ingredients}&ranking=1&number=25&apiKey=${process.env.API_KEY2}`, {
+    axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${req.params.ingredients}&ranking=2&number=25&apiKey=${process.env.API_KEY2}`, {
     }).then(function (response) {
       
       // console.log(response);
