@@ -4,8 +4,7 @@ const path = require("path");
 const axios = require('axios');
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-const apiKey1 = "51f3cdfc80964978a1b1035f9bf64575";
-const apiKey2 = "534345c59b2f4a11b45c4af45345c54e";
+require("dotenv").config();
 
 module.exports = function (app) {
 
@@ -97,7 +96,7 @@ module.exports = function (app) {
 
 
   app.get("/search/:ingredients", (req, res) => {
-    axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${req.params.ingredients}&ranking=1&number=25&apiKey=${apiKey2}`, {
+    axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${req.params.ingredients}&ranking=1&number=25&apiKey=${process.env.API_KEY2}`, {
     }).then(function (response) {
       
       // console.log(response);
@@ -116,7 +115,7 @@ module.exports = function (app) {
   });
 
   app.get("/recipes/:id", (req, res) => {
-    axios.get(`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${apiKey2}`, {
+    axios.get(`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${process.env.API_KEY2}`, {
     }).then(function (response) {
       // console.log(response);
       // res.json(response.data);
