@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', (event) => {
     if (event) {
         console.info('DOM loaded');
@@ -37,6 +39,45 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     };
 
+    const saveRecipes = document.getElementById('favStar');
+
+    if (saveRecipes) {
+        saveRecipes.addEventListener('click', (e) => {
+            e.preventDefault();
+            $.get("/api/user_data").then(data => {
+               let userEmail = data.email;
+               console.log(userEmail);
+                if (userEmail ===undefined) {
+                    alert("Please create an account or login to begin saving recipes.");
+                }else{
+                    const save = {
+                        user: userEmail,
+                        recipeId: parseInt($(".recipeCard").attr("id")),
+                        title: $("#recipeTitle").text(),
+                        image: $("#recipeImgUrl").attr("src"),
+                        url: $("#recipeSource").attr("href"),
+                    };
+                    console.log(save);
+                    fetch("/api/savedRecipe", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type" : "application/json",
+                        },
+                        body: JSON.stringify(save)
+                    }).then(alert("Saved Successfully"));
+
+                    // $.post("/api/savedRecipe", {
+                    //     body: JSON.stringify(save),
+                    // })
+                }
+                
+              });
+
+
+        
+        });
+    };
+
     const goHome= document.getElementById('home');
     if (goHome) {
         goHome.addEventListener('click', (e) => {
@@ -49,9 +90,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
     if (goFavorites) {
         goFavorites.addEventListener('click', (e) => {
             e.preventDefault();
-            location.href = `/favorites/:userId`;
+            location.href = `/member/members`;
         });
     };
+
+    const logout = document.getElementById('logoutBtn');
+    if (logout) {
+        logout.addEventListener('click', (e) => {
+            e.preventDefault();
+            location.href = `/logout`;
+        });
+    };
+
+  
 
     var elems = document.querySelectorAll('.collapsible');
     var instances = M.Collapsible.init(elems);

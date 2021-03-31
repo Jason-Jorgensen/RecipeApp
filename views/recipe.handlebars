@@ -4,12 +4,12 @@
 
   <div class="row container">
     <div class="col s12 m12">
-      <div class="card"style="margin-bottom: 40px;">
+      <div class="card recipeCard"style="margin-bottom: 40px;" id={{recipe.id}}>
         <div class="card-image">
-          <img src="{{recipe.image}}">
+          <img id="recipeImgUrl" src="{{recipe.image}}">
         </div>
         <div class="card-content">
-          <span class="card-title" style="color:black">{{recipe.title}}</span>
+          <span class="card-title" id="recipeTitle" style="color:black">{{recipe.title}}</span>
           <hr />
           <li>Cook Time: {{recipe.readyInMinutes}} Minutes</li>
           <li>Servings: {{recipe.servings}}</li>
@@ -21,7 +21,7 @@
           <p>{{recipe.instructions}}</p>
         </div>
         <div class="card-action">
-          <a href={{recipe.sourceUrl}} target="_blank" style="color:white;" class="btn">Link to Recipe</a>
+          <a href={{recipe.sourceUrl}} target="_blank" id="recipeSource" style="color:white;" class="btn">Link to Recipe</a>
           <a href="" id="favStar"><i class="material-icons right" style="font-size: 30px;">star</i></a>
         </div>
       </div>

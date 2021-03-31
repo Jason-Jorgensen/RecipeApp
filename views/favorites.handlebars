@@ -1,2 +1,46 @@
-<p>working</p>
-{{!-- {{#each d}} --}}
+
+
+    <div class="container">
+       <div class="row">
+           <div class="col s12 m12 l12 center">
+                <h4>Favorite Recipes</h4> 
+                <hr />
+                <h6>Username: <span class="member-name"></span></h6>
+                <button class="btn-small waves-effect  blue-grey darken-2" style="margin-top: 5px;" id="logoutBtn" type="submit" name="action"
+                href="">Logout<i class="fas fa-sign-out-alt" style="margin-left: 5px;"></i>
+                 </button>
+                <p style="font-style: italic;">Save meals while scrolling for recipes by pressing the star located at the bottom of each recipe.</p>
+           </div>
+       </div>
+    </div>
+    
+    <div class="row container"  style="margin-bottom: 50px;">
+  {{!-- {{#each recipes}} --}}
+  <div class="col s12 m6 l6">
+    <div class="card">
+      <div class="card-image">
+        {{!-- <img src={{image}}> --}}
+      </div>
+      <div class="card-content" style="margin-bottom:-10px;">
+        {{!-- <span class="card-title"  style="font-weight: bolder; color:lightcoral; margin-top:-15px;">{{title}}</span> --}}
+    
+        {{!-- {{#if missedIngredientCount}} --}}
+        <h6>Missing Ingredients:</h6>
+        <hr />
+        {{!-- {{#each missedIngredients}} --}}
+        {{!-- <li>{{name}}</li>
+        {{/each}}
+        {{else}} --}}
+        <p style="font-style: italic;">No missing ingredients for this recipe.</p>
+        {{!-- {{/if}} --}}
+      </div>
+      <div class="card-action">
+        {{!-- <a href="/recipes/{{id}}" style="color:lightcoral">View More Information</a> --}}
+      </div>
+    </div>
+  </div>
+  {{!-- {{/each}} --}}
+</div>
+
+
+<script type="text/javascript" src="/js/members.js"></script>

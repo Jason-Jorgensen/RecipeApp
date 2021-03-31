@@ -4,6 +4,7 @@ const path = require("path");
 const axios = require('axios');
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const user = require("../models/user");
 require("dotenv").config();
 
 module.exports = function (app) {
@@ -80,10 +81,12 @@ module.exports = function (app) {
     res.render("signup");
   });
 
+  let userEmail = "";
   app.get("/member/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect(`/member/members`);
+      userEmail = req.user.email;
     }
     res.render("login");
   });
@@ -91,7 +94,8 @@ module.exports = function (app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/member/members", isAuthenticated, function(req, res) {
-    res.render("index");
+    res.render("favorites");
+    // alert(userEmail);
   });
 
 
