@@ -17,7 +17,7 @@
 
 
 
-  [Project Link](https://afternoon-fjord-96402.herokuapp.com/)
+  [Project Link](https://pantrygenie.herokuapp.com/)
 
   ## Table of Contents
 
