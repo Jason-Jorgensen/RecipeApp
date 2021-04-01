@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "bootcamp21",
+    "password": "1998",
     "database": "passport_demo",
     "host": "localhost",
     "dialect": "mysql"
