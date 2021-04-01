@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet" />
   <!--Let browser know website is optimized for mobile-->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://kit.fontawesome.com/e461ce6c7e.js" crossorigin="anonymous"></script>
@@ -20,39 +20,43 @@
 </head>
 
 <body>
-  <nav  style= "background-color: lightcoral;">
+  <nav style="background-color: lightcoral;">
     <div class="nav-wrapper valign-wrapper">
       <a href="/" class="brand-logo center" style="font-style:italic;">The Pantry Genie</a>
       <ul id="nav-mobile" class="left">
-        <li><a href="/member/login"><i class="large material-icons my-3" style="font-size: 40px;">account_circle</i></a></li>
+        <li><a href="/member/login"><i class="large material-icons my-3" style="font-size: 40px;">account_circle</i></a>
+        </li>
       </ul>
     </div>
   </nav>
- 
+
 
   <main class="main">
 
     {{{ body }}}
-
+    
   </main>
+
   <!-- footer -->
   <footer class="page-footer footer selected footerColor">
-    <div class="container" style="margin-bottom:10px; margin-top:-10px;" >
+    <div class="container" style="margin-bottom:10px; margin-top:-10px;">
+
+
       {{!-- <div class="row"> --}}
         <button class="btn-small waves-effect blue-grey darken-4" id="recipeBtn" type="submit" name="action"
-            href="/search/:ingredients">Meals<i class="fas fa-utensils" style="margin-left: 5px;"></i>
-          </button>
+          href="/search/:ingredients">Meals<i class="fas fa-utensils" style="margin-left: 5px;"></i>
+        </button>
 
         <button class="btn-small blue-grey darken-4" id="home" type="submit" name="action" href="/"><i
-              class="material-icons" style="font-size: 25px;">home</i>
-          </button>
+            class="material-icons" style="font-size: 25px;">home</i>
+        </button>
 
-           <button class="btn-small waves-effect  blue-grey darken-4" id="favoritesBtn" type="submit" name="action"
-            href="">Saved<i class="fas fa-star" style="margin-left: 5px;"></i>
-          </button>
+        <button class="btn-small waves-effect  blue-grey darken-4" id="favoritesBtn" type="submit" name="action"
+          href="">Saved<i class="fas fa-star" style="margin-left: 5px;"></i>
+        </button>
 
 
-    </div>
+      </div>
   </footer>
 </body>
 
