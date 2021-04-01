@@ -13,33 +13,29 @@
            </div>
        </div>
     </div>
-    
+
+
     <div class="row container"  style="margin-bottom: 50px;">
-  {{!-- {{#each recipes}} --}}
+  {{#each recipes}}
   <div class="col s12 m6 l6">
     <div class="card">
       <div class="card-image">
-        {{!-- <img src={{image}}> --}}
+        <img src={{image}}>
       </div>
       <div class="card-content" style="margin-bottom:-10px;">
-        {{!-- <span class="card-title"  style="font-weight: bolder; color:lightcoral; margin-top:-15px;">{{title}}</span> --}}
+        <span class="card-title"  style="font-weight: bolder; color:lightcoral; margin-top:-15px;">{{title}}</span>
     
-        {{!-- {{#if missedIngredientCount}} --}}
-        <h6>Missing Ingredients:</h6>
-        <hr />
-        {{!-- {{#each missedIngredients}} --}}
-        {{!-- <li>{{name}}</li>
-        {{/each}}
-        {{else}} --}}
-        <p style="font-style: italic;">No missing ingredients for this recipe.</p>
-        {{!-- {{/if}} --}}
+       
+        <li>{{title}}</li>
+      
+     
       </div>
       <div class="card-action">
-        {{!-- <a href="/recipes/{{id}}" style="color:lightcoral">View More Information</a> --}}
+        <a href={{url}} style="color:lightcoral">View More Information</a>
       </div>
     </div>
   </div>
-  {{!-- {{/each}} --}}
+  {{/each}}
 </div>
 
 

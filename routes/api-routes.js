@@ -55,6 +55,33 @@ module.exports = function(app) {
     db.Favorite.create(req.body).then((dbFavorite) => res.json(dbFavorite));
   });
 
+  // app.get("/api/returnSaved", (req,res) => {
+  //   app.get("/api/user_data").then(data => {
+  //     if (data.email === undefined) {
+  //       alert("Login to view saved recipes");
+  //     }else{
+  //       db.Favorite.findAll({
+  //         where: {
+  //           email: data.email,
+  //         },
+  //       }};
+  //   }).then((dbSaved) => console.log(dbSaved));
+    
+  // });
+
+  app.get("/api/returnSaved", (req,res) => {
+
+        db.Favorite.findAll({
+          where: {
+            user: req.user.email,
+          }
+    }).then((dbSaved) => {
+      console.log(dbSaved.map(recipe => recipe.get({ plain: true })));
+      res.render("favorites", {recipes:dbSaved.map(recipe => recipe.get({ plain: true }))});
+      
+    }) 
+  
+  });
 
 
 };

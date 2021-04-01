@@ -1,3 +1,4 @@
+// const { response } = require("express");
 
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -65,16 +66,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         },
                         body: JSON.stringify(save)
                     }).then(alert("Saved Successfully"));
-
-                    // $.post("/api/savedRecipe", {
-                    //     body: JSON.stringify(save),
-                    // })
                 }
-                
-              });
-
-
-        
+              })
         });
     };
 
@@ -102,7 +95,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     };
 
-  
+    
+    $.get("/api/returnSaved").then(data => {
+    res.render("favorites", data);
+    console.log(data);
+    });
+
+
 
     var elems = document.querySelectorAll('.collapsible');
     var instances = M.Collapsible.init(elems);
